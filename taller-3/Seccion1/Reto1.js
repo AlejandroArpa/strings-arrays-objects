@@ -41,7 +41,6 @@ const validateUser = (name) =>{
     } 
 }
 
-// Number.isNaN String Boolean Object
 
 validateUser(fullName);
 fullName = prompt("Ingrese su nombre completo");
