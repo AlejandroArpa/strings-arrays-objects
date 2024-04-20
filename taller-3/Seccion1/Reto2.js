@@ -1,6 +1,5 @@
 const pwd = prompt("Ingrese una contraseña, recuerda debe tener al menos 8 caracteres, min: un numero, una letra y un caracter especial.");
 let aux = false;
-console.log(pwd.length);
 const validates = [];
 const specialsChars =  `!@#$%^&*()+=_-{}[]:;"'?<>,.|/\~${"`"}`;
 const arraySpecialChars = specialsChars.split("");
@@ -24,21 +23,35 @@ validates.push(arrayToValidate(97, 122));
 validates.push(asciiArraySpecialChars);
 
 
-console.log(validates)
-
 const validatePwd = (pwd) =>{
-    let asnwer = [];
+    let answer = [];
     let asciiArrayPwd = [];
-    pwd.length >=8 ? 
-        asnwer.push([0, true])
-        : asnwer.push([0, false])
     arrayPwd = pwd.split("");
     arrayPwd.forEach(char => {
         asciiArrayPwd.push(char.charCodeAt());
     });
+    validates.forEach(toValidate =>{
+        let flag = false;
+        toValidate.forEach(char => {
+            if (!flag){
+                flag = asciiArrayPwd.includes(char);
+            }
+        }
+        )
+        answer.push(flag);
+    })
+    pwd.length >=8 ? 
+        answer.push(true)
+        : answer.push(false)
 
-    return asnwer
+    return answer
 }
 
-const asnwer = validatePwd(pwd);
-console.log(asnwer[0]);
+const answer = validatePwd(pwd);
+const msgs = [];
+!answer[0] ? msgs.push("-Falta numero") : null;
+!answer[1] && !answer[2] ? msgs.push("-Falta letra") : null;
+!answer[3] ? msgs.push("-Falta simbolo") : null;
+!answer[4] ? msgs.push("-Contraseña demasiado corta") : null;
+answer[0] && (answer[1] || answer[2]) && answer[3] && answer[4] ? msgs.push("Contraseña segura") : null; 
+alert(msgs.join("\n"));
