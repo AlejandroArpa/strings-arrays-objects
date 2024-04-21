@@ -1,11 +1,11 @@
 const pwd = prompt("Ingrese una contraseña, recuerda debe tener al menos 8 caracteres, min: un numero, una letra y un caracter especial.");
 let aux = false;
 const validates = [];
-const specialsChars =  `!@#$%^&*()+=_-{}[]:;"'?<>,.|/\~${"`"}`;
-const arraySpecialChars = specialsChars.split("");
+const specialsChars =  `!@#$%^&*()+=_-{}[]:;"'?<>,.|/\~\`\\`; 
+const arraySpecialChars = specialsChars.split(",");
 const asciiArraySpecialChars = [];
 
-arraySpecialChars.forEach(char => {
+arraySpecialChars.forEach((char) => {
     asciiArraySpecialChars.push(char.charCodeAt());
 })
 
@@ -17,9 +17,9 @@ const arrayToValidate = (start, end) => {
     return array;
 }
 
-validates.push(arrayToValidate(48, 57));
-validates.push(arrayToValidate(65, 90));
-validates.push(arrayToValidate(97, 122));
+validates.push(arrayToValidate(48, 57)); //Ascii 48 to 57 is Numbers
+validates.push(arrayToValidate(65, 90)); //Ascii 65 to 90 is a-z
+validates.push(arrayToValidate(97, 122)); //Ascii 97 to 122 is A-Z 
 validates.push(asciiArraySpecialChars);
 
 
@@ -49,7 +49,7 @@ const validatePwd = (pwd) =>{
 
 const answer = validatePwd(pwd);
 const msgs = [];
-!answer[0] ? msgs.push("-Falta numero") : null;
+!answer[0] ? msgs.push("-Falta numero") : null; 
 !answer[1] && !answer[2] ? msgs.push("-Falta letra") : null;
 !answer[3] ? msgs.push("-Falta simbolo") : null;
 !answer[4] ? msgs.push("-Contraseña demasiado corta") : null;

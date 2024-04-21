@@ -21,13 +21,13 @@ const appendUser = (user) =>{
 const validateUser = (name) =>{
     let userObj = createUser(name);
     if (Object.keys(users).length === 0){
-       appendUser(userObj);
+        appendUser(userObj);
     }
     else{
 
         if (Object.keys(users).includes(Object.keys(userObj)[0])){
             let name = Object.keys(userObj)[0];
-            newName = name.concat('1');
+            newName = name.concat('1'); 
             console.log(name); 
             let newEmail = newName.concat(domain);
             const userParce ={
