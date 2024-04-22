@@ -8,6 +8,7 @@ const addToPrint = (value) => print.push(value);
 
 if(ratings.length > 0 ){
     ratings.sort((a , b) => b - a);
+    // () > 0; () < 0; () === 0 
     const prome = prom(ratings);
     const maxRating = ratings[0];
     const minRating = ratings[ratings.length - 1];
