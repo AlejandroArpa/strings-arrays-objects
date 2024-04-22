@@ -3,7 +3,7 @@ let products = [{
     name: 'Producto 1',
     price: 100,
     quantity: 10,
-    description: 'Descripción del Producto 1'
+    description: 'Descripción del Producto 1 palabra3'
 },
 {
     id: 1,
@@ -74,12 +74,24 @@ const verifyExistQty = (nameToVerify) =>{
 }
 const stockPrice = () => products.reduce((amount, p) =>  amount + (p.price * p.quantity), 0 )
 
+const findProductsBlack = () => products.filter(e => {
+    const arrayWords = e.description.split(" ");
+    console.log(arrayWords);
+    let f = false;
+    arrayWords.forEach(word => {
+        if(blackList.includes(word)){
+            f=true
+        }
+    });
+    if (f){
+        return e;
+    }
+});
 
 while(confirm("Desea agregar un articulo?")){
     const product = captureProduct(products.length);
     product ? products.push(product) : alert("Datos incorrectos o vacios");
 }
-
 
 while(confirm("Desea duplicar un articulo?")){
     const id = Number (prompt("Ingrese el id del producto a duplicar"));
@@ -208,3 +220,5 @@ confirm("Desea organizar los productos de forma ascendente por precio?") ? produ
 showProducts();
 confirm("Desea organizar los productos de forma ascendente por cantidad?") ? products.sort((a , b) => a.quantity - b.quantity) : products.sort((b , a) => a.quantity - b.quantity) ; 
 showProducts();
+console.log(findProductsBlack());
+
