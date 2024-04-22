@@ -34,7 +34,8 @@ const showProducts = () =>{
     console.log(`Estos son los articulos guardados: \n`);
     console.log(products);
 }
-const assignName = (baseName, num) =>{
+
+const assignName = (baseName, num = 1) =>{
     baseName += ` copy ${num}`;
     const nameSplit = baseName.split(" copy");
     const names = [];
@@ -49,6 +50,7 @@ const assignName = (baseName, num) =>{
         return baseName;
     }
 }
+
 const verifyExistQty = (nameToVerify) =>{
     if(nameToVerify){
         const productToValidate = products.some( e => e.name.toLowerCase() === nameToVerify ) ? products.find( e => e.name.toLowerCase() === nameToVerify ) : false;
