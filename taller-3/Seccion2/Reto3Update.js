@@ -1,20 +1,5 @@
-const msgOptions = `Ingrese una de las siguentes opciones: 
-    1 - Agregar un producto 
-    2 - Duplicar articulo 
-    3 - Visualizar
-    4 - Buscar un articulo
-    5 - Actualizacion de producto 
-    6 - Eliminacion de articulos 
-    7 -  Verificar Existencia e inventario 
-    8 - Generar una venta  
-    9 - Hacer una compra  
-    10 - Calcular total del precio de inventario 
-    11 - Ordenar articulos
-    12 - Reporte general 
-    13 - Salir
-                    `
 
-let products = [{
+let articles = [{
     id: 0,
     name: 'Producto 1',
     price: 100,
@@ -28,17 +13,33 @@ let products = [{
     quantity: 1,
     description: 'Descripción del Producto 2'
 }]
-let opt = 0;
 
+function displayArticles() {
+    const tableBody = document.getElementById('articlesTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = ''; 
+    articles.forEach(article => {
+        const row = tableBody.insertRow();
+        row.innerHTML = `<td>${article.id}</td><td>${article.name}</td><td>${article.price}</td><td>${article.quantity}</td><td>${article.description}</td>`;
+    });
+}
 
-const validateNum = (value) => typeof value ===  'number' && !Number.isNaN(value);
+function toggleHidden(elementId) {
+    const form = document.getElementById(elementId);
+    form.classList.toggle('hidden');
+}
+
+document.getElementById('showAddForm').addEventListener('click', () =>toggleHidden('forms'));
+
+displayArticles();
+
+// const validateNum = (value) => typeof value ===  'number' && !Number.isNaN(value);
 
 /* How use idValidate 
 idValidate recive two parameters (num, bool), the secondone is false by def. and have the task to switch the logic of the function, if it's true mean that I want to create a new ID 
 so returns an ID available, if not returns true or false if the num parameter exist or not
 */
 
-const idValidate = (newId, create = false) =>{ 
+/* const idValidate = (newId, create = false) =>{ 
     const ids = [];
     products.forEach( e => {
         ids.push(e.id)
@@ -71,6 +72,8 @@ const menu = () => {
         case 2:
             duplicateArticle();
             menu();
+        case 3:
+            displayArticles();
         case 13:
             return
         default:
@@ -147,3 +150,4 @@ const assignName = (baseName, num = 1) =>{
 
 menu();
 
+ */

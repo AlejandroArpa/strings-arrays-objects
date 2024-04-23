@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articulos</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <section class="d-flex f-dir-c" >
+        <table id="articlesTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <section id="buttons" class="m-top10 d-flex gap15">
+            <button id="showAddForm">Agregar</button>
+            <button>Agregar</button>
+            <button>Agregar</button>
+        </section>
+        <section id="forms" class="hidden d-flex f-dir-c">
+            <form id="formAdd" onsubmit="event.preventDefault();" class="d-flex f-dir-c form">
+                <h4>Ingresar un nuevo articulo</h4>
+                <section class="inputs">
+                    <label for="name">Nombre del articulo</label>
+                    <input type="text" name="name" id="productName" minlength="3" maxlength=""  required>
+                    <input type="submit" value="Agregar">
+                </section>
+            </form>
+        </section>
+    </section>
+    <script type="module" src="./Reto3Update.js"></script>
+
+
+</body>
+</html>
