@@ -33,6 +33,25 @@ html{
 .gap15{
     gap: 15px;
 }
+.jcont-cent {
+    justify-content: center;
+}
+
+.jcont-sbet{
+    justify-content: space-between;
+}
+
+.aitem-cent {
+    align-items: center;
+}
+
+.w35{
+    width: 40%;
+}
+
+.w90 {
+    width: 90%;
+}
 
 body{
     display: flex;
@@ -78,7 +97,7 @@ tr:nth-child(odd) {
     background-color:#8D8D92;
 }
 
-#forms{
+.section-form{
     width: 100vw;
     height: 100vh;
     background-color: #2e2e2ead;

@@ -25,15 +25,33 @@
             <button id="showAddForm">Agregar</button>
             <button>Agregar</button>
             <button>Agregar</button>
+            <div class="d-flex jcont-sbet aitem-cent gap15" style="color: black;">
+                <label for="">Buscar</label>
+                <input type="text" id="searchInput">
+            </div>
         </section>
-        <section id="forms" class="hidden d-flex f-dir-c">
-            <form id="formAdd" onsubmit="event.preventDefault();" class="d-flex f-dir-c form">
+        <section id="sectionFormAdd" class="section-form hidden d-flex f-dir-c">
+            <form id="formAdd" class="d-flex f-dir-c form">
                 <h4>Ingresar un nuevo articulo</h4>
-                <section class="inputs">
-                    <label for="name">Nombre del articulo</label>
-                    <input type="text" name="name" id="productName" minlength="3" maxlength=""  required>
-                    <input type="submit" value="Agregar">
-                </section>
+                <div class="inputs d-flex f-dir-c aitem-cent jcont-cent">
+                    <div class="d-flex aitem-cent w90 jcont-sbet">
+                        <label for="name">Nombre del articulo</label>
+                        <input type="text" name="name" id="productName" minlength="3" maxlength="30"  required class="w35">
+                    </div>
+                    <div  class="d-flex aitem-cent w90 jcont-sbet">
+                        <label for="price">Precio</label>
+                        <input type="number" name="price" id="productPrice" required class="w35">
+                    </div>
+                    <div  class="d-flex aitem-cent w90 jcont-sbet">
+                        <label for="quantity">Cantidad</label>
+                        <input type="number" name="quantity" id="productQuantity" required class="w35">
+                    </div>
+                    <div  class="d-flex aitem-cent w90 jcont-sbet">
+                        <label for="description">Descripcion</label>
+                        <input type="text" name="description" id="productDescription" required class="w35">
+                    </div>
+                    <button type="submit" id="buttonAddForm">Enviar</button>   
+                </>
             </form>
         </section>
     </section>
